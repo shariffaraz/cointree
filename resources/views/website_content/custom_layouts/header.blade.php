@@ -17,7 +17,7 @@
 
 <div class="nav-scroller py-1 mb-2">
 <nav style="float: right;">
-  <a class="p-2 text-muted" href="{{ url('/home') }}">Home</a>
+  <a class="p-2 text-muted" href="{{ url('/') }}">Home</a>
   <a class="p-2 text-muted" href="{{ url('/about_us') }}">About Us</a>
   <a class="p-2 text-muted" href="{{ url('/mining_pool') }}">Mining Pool</a>
   <a class="p-2 text-muted" href="{{ url('/opportunity') }}">Opportunity</a>
