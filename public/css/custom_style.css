@@ -65,7 +65,7 @@ body{
 
 .slider-text{
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translateY(-50%)
 }
@@ -99,4 +99,14 @@ body{
   background-color: white;
   text-align: center;
   margin-left: 28px;
+}
+.header-border{
+  background-color: black;
+  width: 100%;
+  height: 5px;
+}
+.page-heading-title{
+  text-align: center;
+  padding: 19px;
+  background-color: #dcdcdc;
 }

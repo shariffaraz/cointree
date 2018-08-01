@@ -1,4 +1,9 @@
-
+<div class="header" style="padding:unset; background-color: #000000;">
+  <a href="#default" class="logo"></a>
+  <div style="float: right;">
+    <a style="color: #f19434;" href="{{ url('/sign_up') }}">LOGIN</a>
+  </div>
+</div>
 <div class="header">
   <a href="#default" class="logo"><img src="{{url('images/cointree_logo.png')}}"></a>
   <div class="header-right">

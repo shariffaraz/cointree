@@ -42,6 +42,9 @@ Route::group(['middleware' => ['localization']], function () {
     Route::post('register/user', 'WebControllers\UserController@register_user');
     Route::post('login/user', 'WebControllers\UserController@login_user');
     Route::get('/password/reset', 'WebControllers\UserController@reset_password');
+    /*----------  About us Route  ----------*/
+    Route::get('/about_us', 'WebControllers\AboutUsController@about_screen');
+
     /*=====  End of Section for the Website Content  ======*/
     /**
      *
