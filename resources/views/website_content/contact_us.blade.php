@@ -2,9 +2,15 @@
 @section('content')
 @section('css')
 @endsection
+	<div class="page_heading">
+	  	<div class="page-heading-title">
+	  		<h3>Contact Us</h3>
+	  		<p>Home / Contact Us</p>
+	  	</div>
+  	</div>
+  	<br>
 	<div class="container">
 		@include('custom_layouts.flash_messages')
-		<h1>Contact Us Screen</h1>
 		<form class="contact_us_form" method="POST" action="{{ url('send/contact_us/details') }}">
 		  <div class="form-group row">
 		    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>

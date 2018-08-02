@@ -33,6 +33,10 @@ Route::group(['middleware' => ['localization']], function () {
     /*----------  Sign up route  ----------*/
     Route::get('/sign_up', 'WebControllers\UserController@signup_screen');
     Route::post('/sponsar/needed/validate/info', 'WebControllers\UserController@validate_sponsar_form');
+    Route::post('/send/sponsar_details', 'WebControllers\UserController@check_sponsarship');
+    Route::get('/membership_details_form/{id}', 'WebControllers\UserController@membership_details_form');
+    Route::post('/membership/validate/info', 'WebControllers\UserController@validate_membership_form');
+    Route::post('/save/membership_details', 'WebControllers\UserController@save_membership_details');
     /*----------  Contactus route  ----------*/
     Route::get('/contact_us', 'WebControllers\ContactUsController@contact_us_screen');
     Route::post('/contact_us/validate/info', 'WebControllers\ContactUsController@validate_contact_us_form');
@@ -44,7 +48,12 @@ Route::group(['middleware' => ['localization']], function () {
     Route::get('/password/reset', 'WebControllers\UserController@reset_password');
     /*----------  About us Route  ----------*/
     Route::get('/about_us', 'WebControllers\AboutUsController@about_screen');
-
+    /*----------  Logout Route  ----------*/
+    Route::get('/logout', 'WebControllers\UserController@logout');
+    /*----------  Members Login Routes  ----------*/
+    Route::get('/member/login', 'WebControllers\UserController@login_screen');
+    Route::post('/members/login/validate/info', 'WebControllers\UserController@validate_member_login_form');
+    Route::post('/member/authentication', 'WebControllers\UserController@member_login');
     /*=====  End of Section for the Website Content  ======*/
     /**
      *
@@ -76,14 +85,8 @@ Route::group(['middleware' => ['localization']], function () {
     Route::group(['prefix' => 'users'], function () {
         Route::group(['middleware' => ['members']], function () {
             Route::group(['middlewareGroups' => ['web']], function () {
-                /**
-
-                TODO:
-                - Creating Dashboard Controlling
-                - Pcakge Control Controlling
-
-                 */
-                /*----------  Subsection For the User Routes  ----------*/
+                /*----------  Subsection For the Dashboard Routes.  ----------*/
+                Route::get('/dashboard', 'MemberControllers\DashboardController@home_page');
 
             });
         });

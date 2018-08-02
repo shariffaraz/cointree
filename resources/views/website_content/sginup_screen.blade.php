@@ -2,10 +2,16 @@
 @section('content')
 @section('css')
 @endsection
+	<div class="page_heading">
+	  	<div class="page-heading-title">
+	  		<h3>Sign Up</h3>
+	  		<p>Home / Sign Up</p>
+	  	</div>
+  	</div>
+  	<br>
 	<div class="container">
 		@include('custom_layouts.flash_messages')
-		<h1>Sign Up</h1>
-		<form class="contact_us_form" method="POST" action="{{ url('send/contact_us/details') }}">
+		<form class="sponsar_form" method="POST" action="{{ url('send/sponsar_details/') }}">
 		  <div class="form-group row">
 		    <label for="inputEmail3" class="col-sm-2 col-form-label">Sponsor Needed</label>
 		    <div class="col-sm-10">
@@ -29,31 +35,26 @@
 			$('.loading_gif').show();
 			var list = '';
 			var form = $('form').serialize();
-			if (grecaptcha.getResponse() == ""){
-			    alert("You can't proceed!");
-			    $('.loading_gif').hide();
-			} else {
-				$.ajax({
-					url: "{{ url('/sponsar/needed/validate/info') }}",
-					type: 'POST',
-					data: form,
-					success: function(result){
-						if(result.status == 'success'){
-							$('.contact_us_form').submit()[0];
-						}
-						else{
-							var errorArray = result.msg_data;
-	                        errorArray.forEach(function(e){
-	                            list = list +'<li>'+e+'</li>';
-	                        });
+			$.ajax({
+				url: "{{ url('/sponsar/needed/validate/info') }}",
+				type: 'POST',
+				data: form,
+				success: function(result){
+					if(result.status == 'success'){
+						$('.sponsar_form').submit()[0];
+					}
+					else{
+						var errorArray = result.msg_data;
+                        errorArray.forEach(function(e){
+                            list = list +'<li>'+e+'</li>';
+                        });
 
-	                        $('#msg-list').html(list);
-	                        $('.msg-box').addClass("alert-danger").show();
-						}
-						$("html, .container").animate({ scrollTop: 0 }, 600);
-			        	$('.loading_gif').hide();
-			    }});
-			}
+                        $('#msg-list').html(list);
+                        $('.msg-box').addClass("alert-danger").show();
+					}
+					$("html, .container").animate({ scrollTop: 0 }, 600);
+		        	$('.loading_gif').hide();
+		    }});
 		});
 		/**
 			TODO:

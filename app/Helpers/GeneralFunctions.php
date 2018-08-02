@@ -305,4 +305,14 @@ class GeneralFunctions
         return '<img class="loading_gif" style="display:none; height:33px;" src="' . url('img/loading.gif') . '">';
     }
 
+    /**
+     *
+     * Block : Generate verification code for Email varification.
+     *
+     */
+    public static function generateVarificationCode()
+    {
+        return mt_rand(10000000, 99999999);
+    }
+
 }

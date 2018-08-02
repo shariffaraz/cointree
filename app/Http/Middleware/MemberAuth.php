@@ -18,7 +18,7 @@ class MemberAuth
     {
         if (Auth::check()) {
 
-            if (Auth::user()->Roles == 2) {
+            if (Auth::user()->roles == 2) {
                 return $next($request);
             } else {
                 return redirect('/login');
