@@ -110,3 +110,9 @@ body{
   padding: 19px;
   background-color: #dcdcdc;
 }
+.video_banner{
+  text-align: center;
+  height: 200px;
+  background-color: grey;
+  vertical-align: center;
+}

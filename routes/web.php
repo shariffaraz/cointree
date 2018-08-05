@@ -86,8 +86,17 @@ Route::group(['middleware' => ['localization']], function () {
         Route::group(['middleware' => ['members']], function () {
             Route::group(['middlewareGroups' => ['web']], function () {
                 /*----------  Subsection For the Dashboard Routes.  ----------*/
-                Route::get('/dashboard', 'MemberControllers\DashboardController@home_page');
-
+                Route::get('/dashboard', 'MemberControllers\DashboardController@home_page')->name('dashboard');
+                Route::post('/verify_code/validate/info', 'MemberControllers\DashboardController@verify_code_validation');
+                Route::post('/verify/email_address', 'MemberControllers\DashboardController@verify_code');
+                /*----------  Subsection For the MyAccount Routes  ----------*/
+                Route::get('/my_account', 'MemberControllers\MyAccountController@home_page')->name('my_account');
+                Route::post('/user_details/validate/info', 'MemberControllers\MyAccountController@account_form_validation');
+                Route::post('/user_details/update/record', 'MemberControllers\MyAccountController@update_account_details');
+                /*----------  Subsection For the How to Buy Bitcoin Routes  ----------*/
+                Route::get('/how_to_buy_bitcoin', 'MemberControllers\StaticContentController@how_to_buy_bitcoin')->name('how_to_buy_bitcoin');
+                /*----------  Subsection For the FAQ Routes  ----------*/
+                Route::get('/faq', 'MemberControllers\StaticContentController@faq')->name('faq');
             });
         });
     });

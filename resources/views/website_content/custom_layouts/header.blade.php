@@ -2,7 +2,7 @@
   <a href="#default" class="logo"></a>
   <div style="float: right;">
     @if(Auth::check())
-      <a style="color: #f19434;" href="javascript:void(0)">Hi! {!! Session::get('full_name') !!}</a>
+      <a style="color: #f19434;" href="{{ url('/users/dashboard') }}">Hi! {!! Session::get('full_name') !!}</a>
       <a style="color: #f19434;" href="{{ url('/logout') }}">LOGOUT</a>
     @else
       <a style="color: #f19434;" href="{{ url('/member/login') }}">LOGIN</a>
