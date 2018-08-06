@@ -97,6 +97,8 @@ Route::group(['middleware' => ['localization']], function () {
                 Route::get('/how_to_buy_bitcoin', 'MemberControllers\StaticContentController@how_to_buy_bitcoin')->name('how_to_buy_bitcoin');
                 /*----------  Subsection For the FAQ Routes  ----------*/
                 Route::get('/faq', 'MemberControllers\StaticContentController@faq')->name('faq');
+                /*----------  Subsection For Upgrade Account Routes  ----------*/
+                Route::get('/upgrade_my_account', 'MemberControllers\UpgradeAccountController@home_page');
             });
         });
     });

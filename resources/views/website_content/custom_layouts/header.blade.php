@@ -3,6 +3,7 @@
   <div style="float: right;">
     @if(Auth::check())
       <a style="color: #f19434;" href="{{ url('/users/dashboard') }}">Hi! {!! Session::get('full_name') !!}</a>
+      <a href="{{ url('/users/upgrade_my_account') }}" style="color: green;">Upgrade</a>
       <a style="color: #f19434;" href="{{ url('/logout') }}">LOGOUT</a>
     @else
       <a style="color: #f19434;" href="{{ url('/member/login') }}">LOGIN</a>
