@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function contact_details()
+    {
+        return $this->hasOne(ContactDetails::class, 'user_id', 'id');
+    }
 }
