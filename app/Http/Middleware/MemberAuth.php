@@ -18,12 +18,14 @@ class MemberAuth
     {
         if (Auth::check()) {
 
-            if (Auth::user()->roles == 2) {
+            if (Auth::user()->Roles == 2) {
                 return $next($request);
             } else {
+                Auth::logout();
                 return redirect('/login');
             }
         } else {
+            Auth::logout();
             return redirect('/login');
         }
     }

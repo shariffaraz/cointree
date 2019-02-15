@@ -68,13 +68,13 @@ class UserController extends Controller
     public function check_sponsarship(Request $req)
     {
         // 1) Check Sponsar from the User Detail Table
-        $checkSponsarAvailability = User::where('username', $req->sponsar_username)->get()->toArray();
+        $checkSponsarAvailability = User::where('Username', $req->sponsar_username)->get()->toArray();
         if (count($checkSponsarAvailability) > 0) {
             $data['sponsar_details'] = $checkSponsarAvailability;
             return redirect('/membership_details_form/' . $data['sponsar_details'][0]['id']);
         }
-        return redirect('/membership_details_form/0');
-        // return back()->with('error_msg', 'We did not found any record for this sponsar. Please check the username. Thanks');
+        // return redirect('/membership_details_form/0');
+        return back()->with('error_msg', 'We did not found any record for this sponsar. Please check the username. Thanks');
     }
 
     /**
@@ -141,11 +141,12 @@ class UserController extends Controller
         $varification_code = GeneralFunctions::generateVarificationCode();
         // 1) Save Recor in User (Members Table)
         $userRecord = [
-            'email'             => $req->user_email,
+            'EmailAddress'      => $req->user_email,
             'password'          => Hash::make($req->password),
-            'username'          => $req->user_name,
+            'Username'          => $req->user_name,
             'varification_code' => $varification_code,
-            'roles'             => 2,
+            'Roles'             => 2,
+            'parent_id'         => $req->sponsar_id,
         ];
         $saveMember = User::create($userRecord);
 
@@ -154,6 +155,7 @@ class UserController extends Controller
             'first_name' => $req->first_name,
             'last_name'  => $req->last_name,
             'user_id'    => $saveMember->id,
+            'name'       => $req->first_name . ' ' . $req->last_name,
         ];
         $saveContactDetails = ContactDetails::create($contactDetails);
         $data               = [
@@ -231,11 +233,14 @@ class UserController extends Controller
      */
     public function member_login(Request $req)
     {
-        if (Auth::attempt(['username' => $req->user_name, 'password' => $req->input('password')])) {
+        if (Auth::attempt(['Username' => $req->user_name, 'password' => $req->input('password'), 'Roles' => 2])) {
+            // $getRecord = User::with('child_users')->where('id', Auth::user()->id)->get()->toArray();
+
+            // dd($getRecord);
             $getMemberInformation = ContactDetails::where('user_id', Auth::user()->id)->first();
             $sessionData          = [
-                'email'     => Auth::user()->email,
-                'user_name' => Auth::user()->username,
+                'email'     => Auth::user()->EmailAddress,
+                'user_name' => Auth::user()->Username,
                 'full_name' => $getMemberInformation->first_name . ' ' . $getMemberInformation->last_name,
             ];
             session($sessionData);

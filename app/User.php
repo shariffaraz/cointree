@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'username', 'varification_status', 'varification_code', 'roles',
+        'TenantId', 'Username', 'password', 'LastPasswordUpdate', 'IsAdmin', 'LastUpdateBy', 'LastUpdateIPAddress', 'CreatedBy', 'CreatedIPAddress', 'LastLogin', 'LastLoginIPAddress', 'EmailAddress', 'Roles', 'AccountStatus', 'reference_url', 'refered_by', 'refered_status', 'varification_status', 'varification_code', 'name', 'parent_id',
     ];
 
     /**
@@ -30,5 +30,15 @@ class User extends Authenticatable
     public function contact_details()
     {
         return $this->hasOne(ContactDetails::class, 'user_id', 'id');
+    }
+
+    public function text()
+    {
+        return $this->hasOne(ContactDetails::class, 'user_id', 'id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(User::class, 'parent_id', 'id')->with('children')->with('text')->select('Username as name', 'id', 'parent_id');
     }
 }

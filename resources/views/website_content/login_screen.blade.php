@@ -2,6 +2,24 @@
 @section('content')
 @section('css')
 @endsection
+<section class="header1 cid-qZSRdIZaZn mbr-parallax-background" id="header1-9">
+    <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(255, 255, 255);">
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="mbr-white col-md-10">
+                <h1 class="mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-1">
+                    Login</h1>
+
+                <p class="mbr-text align-center pb-3 mbr-fonts-style display-5">
+                    Home / Login</p>
+
+            </div>
+        </div>
+    </div>
+
+</section>
 <br>
 <div class="container">
 	<h3>Member Login</h3>

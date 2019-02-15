@@ -2,12 +2,24 @@
 @section('content')
 @section('css')
 @endsection
-	<div class="page_heading">
-	  	<div class="page-heading-title">
-	  		<h3>Sign Up</h3>
-	  		<p>Home / Sign Up</p>
-	  	</div>
-  	</div>
+	<section class="header1 cid-qZSRdIZaZn mbr-parallax-background" id="header1-9">
+	    <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(255, 255, 255);">
+	    </div>
+
+	    <div class="container">
+	        <div class="row justify-content-md-center">
+	            <div class="mbr-white col-md-10">
+	                <h1 class="mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-1">
+	                    Sign Up</h1>
+
+	                <p class="mbr-text align-center pb-3 mbr-fonts-style display-5">
+	                    Home / Sign Up</p>
+
+	            </div>
+	        </div>
+	    </div>
+
+	</section>
   	<br>
 	<div class="container">
 		@include('custom_layouts.flash_messages')
@@ -16,6 +28,7 @@
 		    <label for="first_name" class="col-sm-2 col-form-label">First Name</label>
 		    <div class="col-sm-10">
 		      <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name">
+		      <input type="hidden" name="sponsar_id" value="{{$sponsar_details->id}}">
 		      {!! csrf_field() !!}
 		    </div>
 		  </div>

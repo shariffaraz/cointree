@@ -50,7 +50,7 @@ class DashboardController extends Controller
      */
     public function verify_code(Request $req)
     {
-        $verifyEmailAddress = User::where('id', Auth::user()->id)->where('varification_code', $req->verification_code)->where('email', Auth::user()->email)->get()->toArray();
+        $verifyEmailAddress = User::where('id', Auth::user()->id)->where('varification_code', $req->verification_code)->where('EmailAddress', Auth::user()->EmailAddress)->get()->toArray();
         if (count($verifyEmailAddress) > 0) {
             // Change the Verification status of the Account and make account verifiable.
             $updateMemberAccount = User::where('id', Auth::user()->id)->update(['varification_status' => 1]);

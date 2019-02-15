@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{{ url('assets/dropdown/css/style.css') }}">
     <link rel="stylesheet" href="{{ url('assets/theme/css/style.css') }}">
     <link rel="stylesheet" href="{{ url('assets/mobirise/css/mbr-additional.css') }}" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{ url('css/Treant.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('css/super-simple.css') }}">
 
     <!-- Custom styles for this template -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet"> -->
@@ -32,7 +34,7 @@
   <body>
     @include('website_content.custom_layouts.header')
     @yield('content')
-    @include('website_content.custom_layouts.footer')
+    <!-- @include('website_content.custom_layouts.footer') -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -49,6 +51,9 @@
     <script src="{{ url('assets/parallax/jarallax.min.js') }}"></script>
     <script src="{{ url('assets/dropdown/js/script.min.js') }}"></script>
     <script src="{{ url('assets/theme/js/script.js') }}"></script>
+    <script src="{{ url('js/raphael.js') }}"></script>
+    <script src="{{ url('js/Treant.js') }}"></script>
+    <!-- <script src="{{ url('js/super-simple.js') }}"></script> -->
     @yield('js')
   </body>
 </html>

@@ -54,6 +54,10 @@ Route::group(['middleware' => ['localization']], function () {
     Route::get('/member/login', 'WebControllers\UserController@login_screen');
     Route::post('/members/login/validate/info', 'WebControllers\UserController@validate_member_login_form');
     Route::post('/member/authentication', 'WebControllers\UserController@member_login');
+    /*----------  Mining Pool Routes  ----------*/
+    Route::get('/mining_pool', 'WebControllers\MiningPoolController@index');
+    /*----------  Oppertunity Routes  ----------*/
+    Route::get('/opportunity', 'WebControllers\OpportunityController@index');
     /*=====  End of Section for the Website Content  ======*/
     /**
      *
@@ -99,6 +103,8 @@ Route::group(['middleware' => ['localization']], function () {
                 Route::get('/faq', 'MemberControllers\StaticContentController@faq')->name('faq');
                 /*----------  Subsection For Upgrade Account Routes  ----------*/
                 Route::get('/upgrade_my_account', 'MemberControllers\UpgradeAccountController@home_page');
+                /*----------  Subsection For Member Details to show tree structure Route  ----------*/
+                Route::get('/members_details', 'MemberControllers\StaticContentController@show_members');
             });
         });
     });

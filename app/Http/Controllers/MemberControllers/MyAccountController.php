@@ -39,8 +39,8 @@ class MyAccountController extends Controller
     {
         // 1) Update Record in User Table
         $memberRecord = [
-            'username' => $req->user_name,
-            'email'    => $req->user_email,
+            'Username'     => $req->user_name,
+            'EmailAddress' => $req->user_email,
         ];
 
         // 2) Update Record in Contact Details Table
@@ -51,6 +51,7 @@ class MyAccountController extends Controller
             'fb_url'       => $req->fb_page,
             'tw_url'       => $req->tw_page,
             'skype_usr'    => $req->skype_usr,
+            'name'         => $req->first_name . ' ' . $req->last_name,
         ];
         $contactDetails = ContactDetails::where('user_id', Auth::user()->id)->update($contactDetails);
 
@@ -72,7 +73,7 @@ class MyAccountController extends Controller
             'first_name' => 'required|max:20',
             'last_name'  => 'required|max:20',
             'user_name'  => 'required|min:7',
-            'user_email' => 'required|email|unique:users,email,' . Auth::user()->id,
+            'user_email' => 'required|email|unique:users,EmailAddress,' . Auth::user()->id,
         ];
         $validation_messages = [
             'first_name.required'            => 'First Name is required',

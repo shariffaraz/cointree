@@ -13,7 +13,7 @@
                     <div style="text-align: left; float: right; width: 53%">So you want to buy Bitcoins. Bitcoins are one of many trendy<br>Cryptocurrencies sold on the internet today...</div></p>
                     <div style="clear: both; padding-bottom: 20px"></div>
                     <div class="mbr-section-btn" style="width: 55%; float: right; text-align: left"><a class="btn btn-md btn-white display-4" href="https://mobirise.com">View More</a>
-                    <a class="btn btn-md btn-white display-4" href="https://mobirise.com">Signup</a></div>
+                    <a class="btn btn-md btn-white display-4" href="{{ url('/sign_up') }}">Signup</a></div>
             </div>
         </div>
     </div>
